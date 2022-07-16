@@ -13,7 +13,7 @@ window.addEventListener("keydown", (e) => {
   }
 
   if (e.key == "ArrowUp" || e.keyCode == 32) {
-    //32 is for space key
+   
     var bullet = document.createElement("div");
     bullet.classList.add("bullets");
     board.appendChild(bullet);
@@ -26,18 +26,13 @@ window.addEventListener("keydown", (e) => {
         if (rock != undefined) {
           var rockbound = rock.getBoundingClientRect();
           var bulletbound = bullet.getBoundingClientRect();
-
-          //Condition to check whether the rock/alien and the bullet are at the same position..!
-          //If so,then we have to destroy that rock
-
           if (
             bulletbound.left >= rockbound.left &&
             bulletbound.right <= rockbound.right &&
             bulletbound.top <= rockbound.top &&
             bulletbound.bottom <= rockbound.bottom
           ) {
-            rock.parentElement.removeChild(rock); //Just removing that particular rock;
-            //Scoreboard
+            rock.parentElement.removeChild(rock); 
             document.getElementById("points").innerHTML =
               parseInt(document.getElementById("points").innerHTML) + 1;
           }
